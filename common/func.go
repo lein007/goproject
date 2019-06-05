@@ -265,6 +265,13 @@ func SqlReplace(str string) string {
 	str = strings.TrimSpace(str)
 	return str
 }
+func SqlReplacePg(str string) string {
+	str = strings.Replace(str, `\`, `\\`, -1)
+	str = strings.Replace(str, `'`, `''`, -1)
+	str = strings.Replace(str, `\r\n`, ``, -1)
+	str = strings.TrimSpace(str)
+	return str
+}
 
 //处理电话
 func Chulihaoma(str string) string {
