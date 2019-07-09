@@ -112,11 +112,11 @@ func GetContent(url string) (string, string) {
 	var b bytes.Buffer
 
 	rand.Seed(time.Now().UnixNano()) //利用当前时间的UNIX时间戳初始化rand包
-	num_h := rand.Intn(len(MY_USER_AGENT) - 1)
+	//num_h := rand.Intn(len(MY_USER_AGENT) - 1)
 
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
-	req.Header.Add("User-Agent", MY_USER_AGENT[num_h])
+	//req.Header.Add("User-Agent", MY_USER_AGENT[num_h])
 	resp, err := client.Do(req)
 
 	if err != nil {
