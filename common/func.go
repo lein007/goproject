@@ -111,7 +111,8 @@ func Df(path string) {
 func GetContent(url string) (string, string) {
 	var b bytes.Buffer
 
-	num_h := rand.Intn((len(MY_USER_AGENT) - 1))
+	rand.Seed(time.Now().UnixNano()) //利用当前时间的UNIX时间戳初始化rand包
+	num_h := rand.Intn(len(MY_USER_AGENT) - 1)
 
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
