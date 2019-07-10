@@ -109,6 +109,10 @@ func Df(path string) {
 
 //获取内容
 func GetContent(url string) (string, string) {
+	if res, _ := regexp.Match(`^[A-Za-z]+://[A-Za-z0-9-_]+\.[A-Za-z0-9-_%&\?\/\.=]+[\S]*$`, []byte(url)); !res {
+		return "", "url不合法"
+	}
+
 	var b bytes.Buffer
 
 	rand.Seed(time.Now().UnixNano()) //利用当前时间的UNIX时间戳初始化rand包
